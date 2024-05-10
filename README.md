@@ -17,4 +17,4 @@ download this repo to
 
 :: cd shaista_sub
 
-:: bash setup.sh
+:: python3 setup.py
