@@ -18,6 +18,11 @@ for file_name in binary_files:
     try:
         shutil.move(source_path, destination_path)
         print(f"File '{file_name}' moved successfully to '{destination_directory}'.")
+        
+        # Add permission to the moved binary file
+        os.chmod(destination_path, 0o755)  # 0o755 corresponds to rwxr-xr-x permission
+        
+        print(f"Permission set for file '{file_name}' in '{destination_directory}'.")
     except FileNotFoundError:
         print(f"File '{file_name}' not found in the source directory.")
     except PermissionError:
