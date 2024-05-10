@@ -1,21 +1,26 @@
-#!/bin/bash
+import shutil
+import os
 
-# Check if the user has root privileges
-if [[ $EUID -ne 0 ]]; then
-    echo "This script must be run as root" 
-    exit 1
-fi
+# Get the current working directory
+source_directory = os.getcwd()
 
-# Define the destination directory
-destination_dir="/usr/local/bin"
+# Define the destination directory where you want to move the binary files
+destination_directory = "/usr/local/bin"
 
-# Move the binary files to the destination directory
-mv "crt" "$destination_dir/"
-mv "shaista_sub" "$destination_dir/"
+# List of binary files to be moved
+binary_files = ["crt", "shaista_sub"]
 
-# Check if the move operation was successful
-if [[ $? -eq 0 ]]; then
-    echo "Binary files moved successfully to $destination_dir"
-else
-    echo "Error moving binary files"
-fi
+# Loop through each binary file and move it to the destination directory
+for file_name in binary_files:
+    source_path = os.path.join(source_directory, file_name)
+    destination_path = os.path.join(destination_directory, file_name)
+    
+    try:
+        shutil.move(source_path, destination_path)
+        print(f"File '{file_name}' moved successfully to '{destination_directory}'.")
+    except FileNotFoundError:
+        print(f"File '{file_name}' not found in the source directory.")
+    except PermissionError:
+        print(f"Permission denied to move file '{file_name}' to '{destination_directory}'.")
+    except Exception as e:
+        print(f"Error occurred while moving file '{file_name}': {e}")
