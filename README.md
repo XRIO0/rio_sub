@@ -1,20 +1,10 @@
-# shaista_sub
-This tool is combination of three tool subfinder and sublister or crt.sh 
-
-
-:) download two tool in kali 
-
-
-
- :: apt install subfinder
-
  
- :: apt install sublist3r 
  
 download this repo to 
 
-:: git clone https://github.com/XRIO0/shaista_sub.git
+:: git clone https://github.com/XRIO0/subjack.git
 
-:: cd shaista_sub
+:: cd subjack
+:: bash subajck -d <domain> -t <thrads>
 
-:: python3 setup.py
+
