@@ -2,9 +2,9 @@
  
 download this repo to 
 
-:: git clone https://github.com/XRIO0/subjack.git
+:: git clone https://github.com/XRIO0/subdom.git
 
-:: cd subjack
-:: bash subajck -d <domain> -t <thrads>
+:: cd subdom
+:: bash subdom.sh -d <domain> -t <thrads>
 
 
